@@ -44,6 +44,16 @@ readonly class Pipeline
     }
 
     /**
+     * Get the subject stored in the pipeline.
+     *
+     * @return mixed
+     */
+    public function get(): mixed
+    {
+        return $this->subject;
+    }
+
+    /**
      * Pass the subject through a pipe that only takes one argument.
      *
      * @param callable $pipe
