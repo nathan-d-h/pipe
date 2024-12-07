@@ -28,7 +28,7 @@ function invoke_with(mixed $subject, array $arguments, callable $pipe): Pipeline
     return Pipeline::new($pipe(...$arguments));
 }
 
-readonly class Pipeline
+final readonly class Pipeline
 {
     private final function __construct(private mixed $subject) {}
 
@@ -36,11 +36,11 @@ readonly class Pipeline
      * Construct a new `Pipe` instance.
      *
      * @param mixed $subject
-     * @return static
+     * @return Pipeline
      */
-    public static function new(mixed $subject): static
+    public static function new(mixed $subject): Pipeline
     {
-        return new static($subject);
+        return new Pipeline($subject);
     }
 
     /**
@@ -57,11 +57,11 @@ readonly class Pipeline
      * Pass the subject through a pipe that only takes one argument.
      *
      * @param callable $pipe
-     * @return static
+     * @return Pipeline
      */
-    public function _(callable $pipe): static
+    public function _(callable $pipe): Pipeline
     {
-        return new static($pipe($this->subject));
+        return new Pipeline($pipe($this->subject));
     }
 
     /**
@@ -69,11 +69,11 @@ readonly class Pipeline
      * any arguments besides the subject itself.
      *
      * @param callable-string $name
-     * @return static
+     * @return Pipeline
      */
-    public function __get(string $name): static
+    public function __get(string $name): Pipeline
     {
-        return new static($name($this->subject));
+        return new Pipeline($name($this->subject));
     }
 
     /**
@@ -82,9 +82,9 @@ readonly class Pipeline
      *
      * @param callable-string $name
      * @param array $arguments
-     * @return static
+     * @return Pipeline
      */
-    public function __call(string $name, array $arguments): static
+    public function __call(string $name, array $arguments): Pipeline
     {
         return invoke_with($this->subject, $arguments, $name);
     }
