@@ -1,0 +1,28 @@
+{
+    "name": "functionil/pipe",
+    "version": "0.1.0",
+    "description": "A simple and refreshing pipe operator-like experience in simple PHP.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Functionil\\Pipe\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "David d.H.",
+            "email": "c3bdd9f14bb240f69f54c50e22@duck.com"
+        },
+        {
+            "name": "Nathan d.H."
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.3"
+    }
+}
