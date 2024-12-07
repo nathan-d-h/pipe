@@ -27,7 +27,7 @@ $four = pipe(1) -> add(3) -> get();
 assert($four === 4);
 ```
 
-As you may have noticed, the add function gets called with only one argument. This is because, by default,
+As you may have noticed, the `add` function gets called with only one argument. This is because, by default,
 the pipeline automatically inserts the item in the pipeline as the first argument to whatever function you're invoking.
 This approach aligns with the convention of designing functions to be data-first, ensuring a consistent workflow within the pipeline.
 
