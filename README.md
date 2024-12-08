@@ -1,3 +1,8 @@
+<p align="center">
+<a href="https://packagist.org/packages/functionil/pipe"><img src="https://shields.io/packagist/dt/functionil/pipe" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/functionil/pipe"><img src="https://shields.io/packagist/v/functionil/pipe" alt="Latest Version"></a>
+</p>
+
 # The pipe operator in PHP
 
 ## Why
